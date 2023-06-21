@@ -1,6 +1,6 @@
 # custom-devfile-registry
 
-Take a look at the definition of `DevWorkspace` and `DevWorkSpaceTemplate` files contained in this repo.
+Take a look at the definition of `DevWorkspace` and `DevWorkSpaceTemplate` files contained in this repo under the loction `TP__indigo__dotnet-web-simple`.
 
 
 #### In shell 1: 
