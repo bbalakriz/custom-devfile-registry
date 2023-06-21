@@ -39,4 +39,4 @@ spec:
   
   #### Use the new custom stack in the user dashboard
   
-  Log into Dev Spaces dashboard and launch a new workspace using the newly defined stack added (as specified in the steps on shell 2) into the devfile registry
+  Log into Dev Spaces dashboard and launch a new workspace using the newly defined stack added (_as defined by `DevWorkspace` and `DevWorkSpaceTemplate` files contained in this repo under the loction `TP__indigo__dotnet-web-simple`_) into the devfile registry
