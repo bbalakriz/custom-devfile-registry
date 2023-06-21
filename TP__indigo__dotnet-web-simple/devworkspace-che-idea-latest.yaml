@@ -1,0 +1,172 @@
+apiVersion: workspace.devfile.io/v1alpha2
+kind: DevWorkspaceTemplate
+metadata:
+  name: che-idea-dotnet-indigo
+spec:
+  commands:
+    - id: init-container-command
+      apply:
+        component: idea-rhel8-injector
+    - id: init-che-idea-command
+      exec:
+        component: idea-rhel8
+        commandLine: >-
+          nohup /projector/entrypoint-volume.sh > /projector/entrypoint-logs.txt
+          2>&1 &
+  events:
+    preStart:
+      - init-container-command
+    postStart:
+      - init-che-idea-command
+  components:
+    - name: idea-rhel8
+      container:
+        image: registry.redhat.io/devspaces/udi-rhel8:3.6
+        env:
+          - name: PROJECTOR_ASSEMBLY_DIR
+            value: /projector
+          - name: PROJECTOR_CONFIG_DIR
+            value: /home/user/.jetbrains
+        volumeMounts:
+          - name: projector-volume
+            path: /projector
+          - name: projector-configuration
+            path: /home/user/.jetbrains
+          - name: projector-java-configuration
+            path: /home/user/.java
+        memoryLimit: 6144Mi
+        memoryRequest: 2048Mi
+        cpuLimit: 2000m
+        cpuRequest: 1500m
+        endpoints:
+          - name: intellij
+            attributes:
+              type: main
+              cookiesAuthEnabled: true
+              discoverable: false
+              urlRewriteSupported: true
+              secure: false
+            targetPort: 8887
+            exposure: public
+            path: /?backgroundColor=434343&wss
+            protocol: http
+          - name: intellij-redirect-1
+            attributes:
+              discoverable: false
+              urlRewriteSupported: false
+            targetPort: 13131
+            exposure: public
+            protocol: http
+          - name: intellij-redirect-2
+            attributes:
+              discoverable: false
+              urlRewriteSupported: false
+            targetPort: 13132
+            exposure: public
+            protocol: http
+          - name: intellij-redirect-3
+            attributes:
+              discoverable: false
+              urlRewriteSupported: false
+            targetPort: 13133
+            exposure: public
+            protocol: http
+      attributes:
+        app.kubernetes.io/component: idea-rhel8-runtime
+        app.kubernetes.io/part-of: idea-rhel8.eclipse.org
+        controller.devfile.io/container-contribution: true
+    - name: projector-volume
+      volume: {}
+    - name: projector-configuration
+      volume: {}
+    - name: projector-java-configuration
+      volume: {}
+    - name: idea-rhel8-injector
+      container:
+        image: registry.redhat.io/devspaces/idea-rhel8:3.6
+        command:
+          - /projector/entrypoint-init-container.sh
+        env:
+          - name: PROJECTOR_VOLUME_MOUNT
+            value: /projector-volume
+          - name: PROJECTOR_ASSEMBLY_DIR
+            value: /projector
+        volumeMounts:
+          - name: projector-volume
+            path: /projector-volume
+        memoryLimit: 128Mi
+        memoryRequest: 32Mi
+        cpuLimit: 500m
+        cpuRequest: 30m
+---
+apiVersion: workspace.devfile.io/v1alpha2
+kind: DevWorkspace
+metadata:
+  name: net-6.0-indigo
+spec:
+  started: true
+  contributions:
+    - name: editor
+      kubernetes:
+        name: che-idea-dotnet-indigo
+  template:
+    components:
+      - container:
+          args:
+            - tail
+            - '-f'
+            - /dev/null
+          endpoints:
+            - exposure: public
+              name: http-dotnet60
+              protocol: http
+              targetPort: 8080
+          env:
+            - name: CONFIGURATION
+              value: Debug
+            - name: STARTUP_PROJECT
+              value: app.csproj
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: 'http://*:8080'
+          image: 'quay.io/balki404/dotnet-udi9:6.0'
+          memoryLimit: 2Gi
+          mountSources: true
+          sourceMapping: /projects
+          volumeMounts:
+            - name: nuget
+              path: /home/user/.nuget
+        name: tools
+      - name: nuget
+        volume:
+          size: 1G
+commands:
+  - exec:
+      commandLine: >-
+        dotnet build -c $CONFIGURATION $STARTUP_PROJECT
+        /p:UseSharedCompilation=false
+      component: tools
+      group:
+        kind: build
+      label: Build
+      workingDir: '${PROJECTS_ROOT}/dotnet-web-simple'
+    id: build
+  - exec:
+      commandLine: >-
+        dotnet run -c $CONFIGURATION --no-build --project $STARTUP_PROJECT
+        --no-launch-profile
+      component: tools
+      group:
+        kind: run
+      label: Run
+      workingDir: '${PROJECTS_ROOT}/dotnet-web-simple'
+    id: run
+    projects:
+      - name: dotnet-web-simple
+        zip:
+          location: 'https://eclipse-che.github.io/che-devfile-registry/7.67.0/resources/v2/dotnet-web-simple.zip'
+    contributions:
+      - name: editor
+        kubernetes:
+          name: che-idea-dotnet

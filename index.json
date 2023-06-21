@@ -1,0 +1,145 @@
+[
+  {
+    "displayName": "Java 11 with Lombok",
+    "description": "Java stack with OpenJDK 11, Maven 3.6 and Lombok 1.18",
+    "tags": [
+      "Java",
+      "OpenJDK",
+      "Maven",
+      "Lombok",
+      "UBI8"
+    ],
+    "icon": "/images/type-lombok.svg",
+    "links": {
+      "v2": "https://github.com/devspaces-samples/lombok-project-sample/tree/devspaces-3.6-rhel-8",
+      "devWorkspaces": {
+        "che-incubator/che-idea/latest": "/devfiles/java11-maven-lombok__lombok-project-sample/devworkspace-che-idea-latest.yaml",
+        "che-incubator/che-code/insiders": "/devfiles/java11-maven-lombok__lombok-project-sample/devworkspace-che-code-insiders.yaml",
+        "che-incubator/che-code/latest": "/devfiles/java11-maven-lombok__lombok-project-sample/devworkspace-che-code-latest.yaml"
+      }
+    }
+  },
+  {
+    "displayName": "Java 11 with Quarkus",
+    "description": "Java stack with OpenJDK 11, Maven 3.6 and Quarkus Tools",
+    "tags": [
+      "Java",
+      "OpenJDK",
+      "Maven",
+      "Quarkus",
+      "UBI8"
+    ],
+    "icon": "/images/type-quarkus.svg",
+    "links": {
+      "v2": "https://github.com/devspaces-samples/quarkus-quickstarts/tree/devspaces-3.6-rhel-8",
+      "devWorkspaces": {
+        "che-incubator/che-idea/latest": "/devfiles/java11-maven-quarkus__quarkus-quickstarts/devworkspace-che-idea-latest.yaml",
+        "che-incubator/che-code/insiders": "/devfiles/java11-maven-quarkus__quarkus-quickstarts/devworkspace-che-code-insiders.yaml",
+        "che-incubator/che-code/latest": "/devfiles/java11-maven-quarkus__quarkus-quickstarts/devworkspace-che-code-latest.yaml"
+      }
+    }
+  },
+  {
+    "displayName": "Node.js MongoDB",
+    "description": "Node.js stack with NPM 8, Node.js 16 and MongoDB 3.6",
+    "tags": [
+      "Node.js",
+      "NPM",
+      "Express",
+      "MongoDB",
+      "UBI8"
+    ],
+    "icon": "/images/type-node.svg",
+    "links": {
+      "v2": "https://github.com/devspaces-samples/nodejs-mongodb-sample/tree/devspaces-3.6-rhel-8",
+      "devWorkspaces": {
+        "che-incubator/che-idea/latest": "/devfiles/nodejs__nodejs-mongodb-sample/devworkspace-che-idea-latest.yaml",
+        "che-incubator/che-code/insiders": "/devfiles/nodejs__nodejs-mongodb-sample/devworkspace-che-code-insiders.yaml",
+        "che-incubator/che-code/latest": "/devfiles/nodejs__nodejs-mongodb-sample/devworkspace-che-code-latest.yaml"
+      }
+    }
+  },
+  {
+    "displayName": "Node.js Express",
+    "description": "Node.js stack with NPM 8, Node.js 16 and Express Web Application",
+    "tags": [
+      "Node.js",
+      "NPM",
+      "Express",
+      "UBI8"
+    ],
+    "icon": "/images/type-node.svg",
+    "links": {
+      "v2": "https://github.com/devspaces-samples/web-nodejs-sample/tree/devspaces-3.6-rhel-8",
+      "devWorkspaces": {
+        "che-incubator/che-idea/latest": "/devfiles/nodejs__web-nodejs-sample/devworkspace-che-idea-latest.yaml",
+        "che-incubator/che-code/insiders": "/devfiles/nodejs__web-nodejs-sample/devworkspace-che-code-insiders.yaml",
+        "che-incubator/che-code/latest": "/devfiles/nodejs__web-nodejs-sample/devworkspace-che-code-latest.yaml"
+      }
+    }
+  },
+  {
+    "displayName": "Python",
+    "description": "Python Stack with Python 3.9 and pip",
+    "tags": [
+      "Python",
+      "pip",
+      "UBI8"
+    ],
+    "icon": "/images/type-python.svg",
+    "links": {
+      "v2": "https://github.com/devspaces-samples/python-hello-world/tree/devspaces-3.6-rhel-8",
+      "devWorkspaces": {
+        "che-incubator/che-idea/latest": "/devfiles/python__python-hello-world/devworkspace-che-idea-latest.yaml",
+        "che-incubator/che-code/insiders": "/devfiles/python__python-hello-world/devworkspace-che-code-insiders.yaml",
+        "che-incubator/che-code/latest": "/devfiles/python__python-hello-world/devworkspace-che-code-latest.yaml"
+      }
+    }
+  },
+  {
+    "displayName": "Custom IndiGo .NET",
+    "description": "Custom IndiGo .NET stack with .NET Core SDK 6, Runtime, C# Language Support and Debugger",
+    "tags": [
+      ".NET",
+      "C#",
+      ".NET SDK",
+      ".NET Runtime",
+      "Netcoredbg",
+      "Omnisharp",
+      "UBI8"
+    ],
+    "icon": "/images/type-dotnet.svg",
+    "links": {
+      "v2": "https://github.com/devspaces-samples/dotnet-web-simple/tree/devspaces-3.6-rhel-8",
+      "devWorkspaces": {
+        "che-incubator/che-idea/latest": "/devfiles/TP__indigo__dotnet-web-simple/devworkspace-che-idea-latest.yaml",
+        "che-incubator/che-code/insiders": "/devfiles/TP__indigo__dotnet-web-simple/devworkspace-che-code-insiders.yaml",
+        "che-incubator/che-code/latest": "/devfiles/TP__indigo__dotnet-web-simple/devworkspace-che-code-latest.yaml"
+      }
+    }
+  },
+  {
+    "displayName": ".NET",
+    "description": ".NET stack with .NET Core SDK 7, Runtime, C# Language Support and Debugger",
+    "tags": [
+      "Tech-Preview",
+      ".NET",
+      "C#",
+      ".NET SDK",
+      ".NET Runtime",
+      "Netcoredbg",
+      "Omnisharp",
+      "UBI8"
+    ],
+    "icon": "/images/type-dotnet.svg",
+    "links": {
+      "v2": "https://github.com/devspaces-samples/dotnet-web-simple/tree/devspaces-3.6-rhel-8",
+      "devWorkspaces": {
+        "che-incubator/che-idea/latest": "/devfiles/TP__dotnet__dotnet-web-simple/devworkspace-che-idea-latest.yaml",
+        "che-incubator/che-code/insiders": "/devfiles/TP__dotnet__dotnet-web-simple/devworkspace-che-code-insiders.yaml",
+        "che-incubator/che-code/latest": "/devfiles/TP__dotnet__dotnet-web-simple/devworkspace-che-code-latest.yaml"
+      }
+    }
+  }
+
+]
