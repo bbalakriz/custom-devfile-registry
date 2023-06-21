@@ -14,7 +14,7 @@ bash-4.4$ rm -rf TP__c* TP__g* TP__p*
 #### In shell 2:
 
 ```
-$ git clone <current_repo>
+$ git clone https://github.com/bbalakriz/custom-devfile-registry
 $ cd custom-devfile-registry
 $ podman cp ./TP__indigo__dotnet-web-simple/ $(podman ps -q):/var/www/html/devfiles/
 $ podman cp ./index.json $(podman ps -q):/var/www/html/devfiles/index.json 
