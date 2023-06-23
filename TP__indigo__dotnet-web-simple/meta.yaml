@@ -1,5 +1,5 @@
-displayName: Custom IndiGo .NET
-description: Custom IndiGo .NET stack with .NET Core SDK 6, Runtime, C# Language Support and Debugger
+displayName: .NET 6.0
+description: .NET stack with .NET Core SDK 6, Runtime, C# Language Support and Debugger
 tags:
   - .NET
   - C#
